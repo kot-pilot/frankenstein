@@ -12,13 +12,18 @@ namespace EntityFramework
         }
         public DbSet<First> First { get; set; }
 
-        // The following configures EF to create a Sqlite database file in the
-        // special "local" folder for your platform.
+        public DbSet<Third> Third { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlServer("Server=localhost;Database=frankenstein;Trusted_Connection=True;");
     }
 
     public class First
+    {
+        public int Id { get; set; }
+    }
+
+    public class Third
     {
         public int Id { get; set; }
     }
